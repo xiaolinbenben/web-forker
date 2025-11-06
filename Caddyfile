@@ -1,17 +1,16 @@
 wp.beisi.tech {
     encode gzip
 
-    @badApi path /api/* /cart/* /collect
+    # block 无关 API 请求
+    @badApi path /api/* /cart/* /collect /.well-known/*
     respond @badApi 204
 
-    root * /var/www/html
-
-    php_fastcgi wordpress:80
-
+    # WordPress rewrite
     @notFile {
         not file
     }
     rewrite @notFile /index.php
 
-    file_server
+    # 代理到 Apache 80 端口
+    reverse_proxy wordpress:80
 }
