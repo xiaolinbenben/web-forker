@@ -6,7 +6,7 @@ wp.beisi.tech {
 
     root * /var/www/html
 
-    php_fastcgi wordpress:9000
+    php_fastcgi wordpress:80
 
     @notFile {
         not file
