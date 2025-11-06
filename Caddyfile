@@ -1,3 +1,13 @@
 wp.beisi.tech {
+    encode gzip
+
+    @badApi path /api/* /cart/* /collect
+    respond @badApi 204
+
     reverse_proxy wordpress:80
+
+    @notFile {
+        not file
+    }
+    rewrite @notFile /index.php
 }
