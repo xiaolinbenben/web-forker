@@ -4,11 +4,5 @@ wp.beisi.tech {
     @badApi path /api/* /cart/* /collect /.well-known/*
     respond @badApi 204
 
-    @notPhp {
-        not path *.php
-        not file
-    }
-    rewrite @notPhp /index.php
-
     reverse_proxy wordpress:80
 }
