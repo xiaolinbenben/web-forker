@@ -1,0 +1,3 @@
+wp.beisi.tech {
+    reverse_proxy wordpress:80
+}

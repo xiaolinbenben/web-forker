@@ -1,0 +1,4 @@
+db/mysql/conf
+db/mysql/data
+caddy/
+wp/
