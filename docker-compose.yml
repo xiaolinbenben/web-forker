@@ -7,7 +7,7 @@ services:
     restart: always
     privileged: true
     environment:
-      MYSQL_ROOT_PASSWORD: F29A99E8-4E64-4728-813A-3725EDBAF376
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
     volumes:
       - "./db/mysql/conf:/etc/mysql/conf.d"
       - "./db/mysql/data:/var/lib/mysql"
@@ -28,6 +28,8 @@ services:
       - ./caddy/config:/config
       - ./Caddyfile:/etc/caddy/Caddyfile
       - ./caddy/caddy_logs:/var/log/caddy
+    environment:
+      DOMAIN: ${DOMAIN}
     networks:
       - beisi-network
     restart: always
@@ -41,7 +43,7 @@ services:
     environment:
       WORDPRESS_DB_HOST: mysql
       WORDPRESS_DB_USER: root
-      WORDPRESS_DB_PASSWORD: F29A99E8-4E64-4728-813A-3725EDBAF376
+      WORDPRESS_DB_PASSWORD: ${WORDPRESS_DB_PASSWORD}
       WORDPRESS_DB_NAME: wp
     volumes:
       - ./wp:/var/www/html

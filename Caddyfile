@@ -1,14 +1,4 @@
-wp.beisi.tech {
+{$DOMAIN} {
     encode gzip
-
-    @shopify {
-        path_regexp shopify ^/cdn/shopifycloud/*
-    }
-    respond @shopify 204
-
-    reverse_proxy wordpress:80 {
-        header_up Host {host}
-        header_up X-Real-IP {remote_host}
-        header_up X-Forwarded-Proto https
-    }
+    reverse_proxy wordpress:80
 }
