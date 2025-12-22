@@ -3,3 +3,4 @@ db/mysql/data
 caddy/
 wp/
 .env
+.DS_Store

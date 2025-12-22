@@ -8,6 +8,8 @@ services:
     privileged: true
     environment:
       MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD}
+      PHP_UPLOAD_MAX_FILESIZE: 64M
+      PHP_POST_MAX_SIZE: 64M
     volumes:
       - "./db/mysql/conf:/etc/mysql/conf.d"
       - "./db/mysql/data:/var/lib/mysql"
